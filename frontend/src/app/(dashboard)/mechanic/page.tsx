@@ -17,7 +17,7 @@ export default function MechanicDashboardPage() {
   const fetchBookings = async () => {
     try {
       const token = localStorage.getItem('token');
-      const res = await fetch(`http://localhost:8000/api/v1/mechanics/bookings`, {
+      const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8000'}/api/v1/mechanics/bookings`, {
         headers: { 'Authorization': `Bearer ${token}` }
       });
       if (res.ok) {
@@ -33,7 +33,7 @@ export default function MechanicDashboardPage() {
   const updateStatus = async (id: number, status: string) => {
     try {
       const token = localStorage.getItem('token');
-      const res = await fetch(`http://localhost:8000/api/v1/mechanics/bookings/${id}/status?status=${status}`, {
+      const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8000'}/api/v1/mechanics/bookings/${id}/status?status=${status}`, {
         method: 'PUT',
         headers: { 'Authorization': `Bearer ${token}` }
       });

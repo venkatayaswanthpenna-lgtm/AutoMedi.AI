@@ -26,7 +26,7 @@ export default function GarageDiscoveryPage() {
     try {
       const token = localStorage.getItem('token');
       // Using mock coordinates for San Francisco
-      const res = await fetch(`http://localhost:8000/api/v1/garages/?lat=37.7749&lng=-122.4194`, {
+      const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8000'}/api/v1/garages/?lat=37.7749&lng=-122.4194`, {
         headers: { 'Authorization': `Bearer ${token}` }
       });
       if (res.ok) {
@@ -46,7 +46,7 @@ export default function GarageDiscoveryPage() {
         garage_id: garage.id,
         appointment_time: new Date(Date.now() + 86400000).toISOString(), // Tomorrow
       };
-      const res = await fetch(`http://localhost:8000/api/v1/garages/bookings`, {
+      const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8000'}/api/v1/garages/bookings`, {
         method: 'POST',
         headers: { 
           'Authorization': `Bearer ${token}`,

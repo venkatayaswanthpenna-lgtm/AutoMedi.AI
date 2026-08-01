@@ -44,7 +44,7 @@ export default function NewInspectionPage() {
       });
 
       const token = localStorage.getItem('token');
-      const res = await fetch('http://localhost:8000/api/v1/vehicles/inspections', {
+      const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8000'}/api/v1/vehicles/inspections`, {
         method: 'POST',
         headers: { 'Authorization': `Bearer ${token}` },
         body: formData,

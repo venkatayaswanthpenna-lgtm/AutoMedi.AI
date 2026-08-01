@@ -31,7 +31,7 @@ export function ChatBot({ inspectionId }: { inspectionId: string }) {
   const fetchHistory = async () => {
     try {
       const token = localStorage.getItem('token');
-      const res = await fetch(`http://localhost:8000/api/v1/inspections/${inspectionId}/chat`, {
+      const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8000'}/api/v1/inspections/${inspectionId}/chat`, {
         headers: { 'Authorization': `Bearer ${token}` }
       });
       if (res.ok) {
@@ -57,7 +57,7 @@ export function ChatBot({ inspectionId }: { inspectionId: string }) {
     
     try {
       const token = localStorage.getItem('token');
-      const res = await fetch(`http://localhost:8000/api/v1/inspections/${inspectionId}/chat`, {
+      const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8000'}/api/v1/inspections/${inspectionId}/chat`, {
         method: 'POST',
         headers: { 
           'Authorization': `Bearer ${token}`,
