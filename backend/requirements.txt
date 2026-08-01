@@ -1,0 +1,17 @@
+fastapi
+uvicorn[standard]
+sqlalchemy
+aiosqlite
+pydantic
+pydantic-settings
+python-dotenv
+passlib[bcrypt]
+PyJWT
+python-multipart
+fpdf2
+pytest
+google-generativeai
+pillow
+boto3
+alembic
+asyncpg
