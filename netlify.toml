@@ -1,0 +1,14 @@
+[build]
+  # Set the base directory to frontend since it's a monorepo
+  base = "frontend"
+  
+  # The build command Next.js uses
+  command = "npm run build"
+  
+  # The directory where Next.js places the build output
+  publish = ".next"
+
+[[plugins]]
+  # Netlify automatically uses the essential Next.js plugin, 
+  # but declaring it ensures optimal compatibility.
+  package = "@netlify/plugin-nextjs"
